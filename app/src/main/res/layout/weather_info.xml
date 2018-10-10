@@ -209,7 +209,7 @@
                 android:singleLine="true"
                 android:text="-2℃~7℃"
                 android:textColor="@android:color/white"
-                android:textSize="30sp"/>
+                android:textSize="20sp"/>
             <!--天气状况-->
             <TextView
                 android:id="@+id/climate"
