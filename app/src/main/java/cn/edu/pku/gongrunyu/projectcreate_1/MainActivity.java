@@ -109,7 +109,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
         if(view.getId() == R.id.title_city_manager){
             Intent i = new Intent(this,SelectCity.class);
-            startActivity(i);
+            //startActivity(i);
+            startActivityForResult(i,1);
         }
 
         if(view.getId() == R.id.title_update_btn){
@@ -126,6 +127,22 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 Toast.makeText(MainActivity.this,"网络gg了！",Toast.LENGTH_LONG).show();
             }
 
+        }
+    }
+
+    protected void onActivityResult(int requestCode,int resultCode,Intent data){
+        if (requestCode == 1 && resultCode == RESULT_OK){
+            String newCityCode = data.getStringExtra("cityCode");
+            Log.d("myWeather","选择的城市代码为"+newCityCode);
+
+            if(NetUtil.getNetworkState(this) != NetUtil.NETWORN_NONE){
+                Log.d("myWeather","网络OK了！");
+                queryWeatherCode(newCityCode);
+            }
+            else {
+                Log.d("myWeather","网络gg了！");
+                Toast.makeText(MainActivity.this,"网络gg了！",Toast.LENGTH_LONG).show();
+            }
         }
     }
 
