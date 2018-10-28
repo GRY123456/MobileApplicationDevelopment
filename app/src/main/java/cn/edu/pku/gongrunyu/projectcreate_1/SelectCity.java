@@ -54,9 +54,15 @@ public class SelectCity extends Activity implements View.OnClickListener{
         mList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(SelectCity.this,
+                /*Toast.makeText(SelectCity.this,
                         "CityCode"+ cityList.get(position).getNumber(),
                         Toast.LENGTH_SHORT).show();
+                        */
+                Intent i = new Intent();
+                String str = cityList.get(position).getNumber();
+                i.putExtra("cityCode",str);
+                setResult(RESULT_OK,i);
+                finish();
             }
         });
     }
