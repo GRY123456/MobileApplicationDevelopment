@@ -10,6 +10,7 @@ import java.util.List;
 
 import cn.edu.pku.gongrunyu.bean.City;
 
+//将数据库中的信息放入列表中并返回
 public class CityDB {
     public static final String CITY_DB_NAME = "city.db";
     private static final String CITY_TABLE_NAME = "city";

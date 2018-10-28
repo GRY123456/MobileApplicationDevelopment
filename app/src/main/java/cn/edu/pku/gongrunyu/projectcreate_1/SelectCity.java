@@ -23,6 +23,7 @@ public class SelectCity extends Activity implements View.OnClickListener{
     private String[] data;
     private ArrayAdapter<String> myadapter;
 
+    //一些初始化
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -31,6 +32,7 @@ public class SelectCity extends Activity implements View.OnClickListener{
         initViews();
     }
 
+    //初始化，并显示ListView,并且是在监听事件
     private void initViews(){
         //为mBackBtn设置监听事件
         mBackBtn = (ImageView) findViewById(R.id.title_back);
@@ -67,6 +69,7 @@ public class SelectCity extends Activity implements View.OnClickListener{
         });
     }
 
+    //响应点击返回按钮的监听事件
     @Override
     public void onClick(View v){
         switch (v.getId()){

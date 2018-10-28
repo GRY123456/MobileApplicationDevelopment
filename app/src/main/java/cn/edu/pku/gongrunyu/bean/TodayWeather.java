@@ -1,5 +1,7 @@
 package cn.edu.pku.gongrunyu.bean;
 
+
+//天气类，储存着天气类的属性和方法
 public class TodayWeather {
     private String city;
     private String updatetime;

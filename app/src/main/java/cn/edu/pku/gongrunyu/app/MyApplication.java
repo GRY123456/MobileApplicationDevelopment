@@ -22,6 +22,7 @@ public class MyApplication extends Application {
 
     private List<City> mCityList;
 
+    //OnCreate是一个消息响应函数
     @Override
     public void onCreate(){
         super.onCreate();
@@ -32,6 +33,7 @@ public class MyApplication extends Application {
         initCityList();
     }
 
+    //初始化城市列表
     private void initCityList(){
         mCityList = new ArrayList<City>();
         new Thread(new Runnable() {
@@ -43,6 +45,7 @@ public class MyApplication extends Application {
         }).start();
     }
 
+    //准备城市列表
     private boolean prepareCityList() {
         mCityList = mCityDB.getAllCity();
         int i=0;
@@ -65,6 +68,7 @@ public class MyApplication extends Application {
         return mApplication;
     }
 
+    //打开数据库
     private CityDB openCityDB() {
         String path = "/data"
                 + Environment.getDataDirectory().getAbsolutePath()

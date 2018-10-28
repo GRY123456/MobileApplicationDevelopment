@@ -76,7 +76,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         initView();
     }
 
-
+    //一些初始化
     void initView(){
         city_name_Tv = (TextView) findViewById(R.id.title_city_name);
         cityTv = (TextView) findViewById(R.id.city);
@@ -103,7 +103,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         windTv.setText("N/A");
     }
 
-
+    //监听点击的事件
     @Override
     public void onClick(View view) {
 
@@ -130,6 +130,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         }
     }
 
+    //返回选择城市的代码
     protected void onActivityResult(int requestCode,int resultCode,Intent data){
         if (requestCode == 1 && resultCode == RESULT_OK){
             String newCityCode = data.getStringExtra("cityCode");
@@ -146,6 +147,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         }
     }
 
+    //查询cityCode，即某个城市的天气信息
     private void queryWeatherCode(String cityCode){
         final String address = "http://wthrcdn.etouch.cn/WeatherApi?citykey=" + cityCode;
         Log.d("myWeather",address);
@@ -192,6 +194,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         }).start();
     }
 
+    //解析XML文件，并且显示里面的数值
     private TodayWeather parseXML(String xmldata){
         TodayWeather todayWeather = null;
         int fengxiangCount = 0;
@@ -291,6 +294,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     }
 
 
+    //更新得到的天气数值
     void updateTodayWeather(TodayWeather todayWeather){
         city_name_Tv.setText(todayWeather.getCity()+"天气");
         cityTv.setText(todayWeather.getCity());
@@ -305,6 +309,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         Toast.makeText(MainActivity.this,"更新成功！",Toast.LENGTH_SHORT).show();
     }
 
+    //更新图片
     void uodateImage(TodayWeather todayWeather){
         int pm25 = Integer.valueOf(todayWeather.getPm25()).intValue();
         String climate = todayWeather.getType();

@@ -1,5 +1,7 @@
 package cn.edu.pku.gongrunyu.bean;
 
+
+//城市类，储存着城市类的属性和方法
 public class City {
     private String province;
     private String city;
