@@ -31,6 +31,7 @@ public class SelectCity extends Activity implements View.OnClickListener{
     private ArrayList<String> mSearchResult = new ArrayList<>(); //搜索结果，只放城市名
     private Map<String,String> nameToCode = new HashMap<>(); //城市名到编码
     private Map<String,String> nameToPinyin = new HashMap<>(); //城市名到拼音
+    private Map<String,String> nameToFirst = new HashMap<>(); //城市名到首字母
 
     //一些初始化
     @Override
@@ -52,7 +53,8 @@ public class SelectCity extends Activity implements View.OnClickListener{
                     for (String str : nameToPinyin.keySet()) {
                         newText = newText.toUpperCase();
                         if
-                                (str.contains(newText)||nameToPinyin.get(str).contains(newText)) {
+                                (str.contains(newText)||nameToPinyin.get(str).contains(newText)
+                                ||nameToFirst.get(str).contains(newText)) {
                             mSearchResult.add(str);
                         }
                     }
@@ -86,12 +88,15 @@ public class SelectCity extends Activity implements View.OnClickListener{
         String strName;
         String strCode;
         String strNamePinyin;
+        String First;
         for (int i=0;i<cityList.size();i++){
             strName = cityList.get(i).getCity();
             strCode = cityList.get(i).getNumber();
             strNamePinyin = cityList.get(i).getAllPY();
+            First = cityList.get(i).getAllFristPY();
             nameToCode.put(strName,strCode);
             nameToPinyin.put(strName,strNamePinyin);
+            nameToFirst.put(strName,First);
             mSearchResult.add(strName + " " + strCode);
         }
 
