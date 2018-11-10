@@ -16,6 +16,8 @@ public class TodayWeather {
     private String low;
     private String type;
 
+
+
     @Override
     public String toString() {
         return "TodayWeather{" +
